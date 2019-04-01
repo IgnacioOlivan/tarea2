@@ -1,7 +1,6 @@
 cadena_t insertar_antes(info_t i, localizador_t loc, cadena_t cad);
 
-cadena_t cortar_segmento(localizador_t desde, localizador_t hasta,
-                         cadena_t cad);
+cadena_t cortar_segmento(localizador_t desde, localizador_t hasta, cadena_t cad);
 
 cadena_t remover_de_cadena(localizador_t &loc, cadena_t cad);
 
@@ -74,4 +73,19 @@ void imprimir_cadena(cadena_t cad)
     }
     printf("%d\n", info_a_texto(cad->final));
   }
+}
+
+localizador_t kesimo(nat k, cadena_t cad);
+{
+  int cont = 1;
+  localizador_t cursor = inicio_cadena(cad);
+  while ((cont != k) && (cursor->siguiente != NULL))
+  {
+    cursor = siguiente(cursor, cad);
+    ++cont;
+  }
+  if (cont = k)
+    return cursor;
+  else
+    return NULL;
 }

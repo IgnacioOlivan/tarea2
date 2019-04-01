@@ -167,7 +167,8 @@ cadena_t cambiar_en_cadena(info_t i, localizador_t loc, cadena_t cad)
 localizador_t siguiente(localizador_t loc, cadena_t cad);
 {
     localizador_t res;
-    res = NULL if (localizador_en_cadena(loc, cad))
+    res = NULL;
+    if (localizador_en_cadena(loc, cad))
         res = loc->siguiente;
     return res;
 }
@@ -175,7 +176,8 @@ localizador_t siguiente(localizador_t loc, cadena_t cad);
 localizador_t anterior(localizador_t loc, cadena_t cad);
 {
     localizador_t res;
-    res = NULL if (localizador_en_cadena(loc, cad))
+    res = NULL;
+    if (localizador_en_cadena(loc, cad))
         res = loc->anterior;
     return res;
 }
@@ -184,11 +186,11 @@ bool es_final_cadena(localizador_t loc, cadena_t cad);
 {
     if (es_vacia_cadena(cad))
     {
-        return false
+        return false;
     }
     else
     {
-        return !es_localizador(siguiente(loc, cad))
+        return !es_localizador(siguiente(loc, cad));
     }
 }
 
@@ -196,11 +198,11 @@ bool es_inicio_cadena(localizador_t loc, cadena_t cad);
 {
     if (es_vacia_cadena(cad))
     {
-        return false
+        return false;
     }
     else
     {
-        return !es_localizador(anterior(loc, cad))
+        return !es_localizador(anterior(loc, cad));
     }
 }
 
@@ -277,4 +279,19 @@ void imprimir_cadena(cadena_t cad)
         }
         printf("%d\n", info_a_texto(cad->final));
     }
+}
+
+localizador_t kesimo(nat k, cadena_t cad);
+{
+    int cont = 1;
+    localizador_t cursor = inicio_cadena(cad);
+    while ((cont != k) && (cursor->siguiente != NULL))
+    {
+        cursor = siguiente(cursor, cad);
+        ++cont;
+    }
+    if (cont = k)
+        return cursor;
+    else
+        return NULL;
 }
