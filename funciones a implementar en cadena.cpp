@@ -89,3 +89,13 @@ localizador_t kesimo(nat k, cadena_t cad);
   else
     return NULL;
 }
+
+cadena_t intercambiar(localizador_t loc1, localizador_t loc2, cadena_t cad);
+{
+  assert(localizador_en_cadena(loc1, cad) && localizador_en_cadena(loc2, cad));
+  nodo *phloc1 = loc1->dato;
+  nodo *phloc2 = loc2->dato;
+  loc1->dato = phloc2->dato;
+  loc2->dato = phloc1->dato;
+  return cad;
+}
