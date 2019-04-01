@@ -96,7 +96,7 @@ cadena_t liberar_cadena(cadena_t cad)
         a_borrar = cad->inicio;
         cad->inicio = cad->inicio->siguiente;
         liberar_info(a_borrar->dato);
-        delete (a_borar);
+        delete (a_borrar);
     }
     delete cad;
     return cad;
@@ -238,5 +238,27 @@ cadena_t remover_de_cadena(localizador_t &loc, cadena_t cad)
 
 info_t info_cadena(localizador_t loc, cadena_t cad)
 {
-    assert(localizador_en_cadena(loc, cad)) return loc->dato;
+    assert(localizador_en_cadena(loc, cad));
+    return loc->dato;
+}
+
+cadena_t cortar_segmento(localizador_t desde, localizador_t hasta, cadena_t cad);
+{
+    assert(precede_en_cadena(desde, hasta, cad) || es_vacia_cadena(cad)) if es_vacia_cadena(cad) return cad;
+    else
+    {
+        nodo *a_borrar;
+        while (desde != hasta)
+        {
+            a_borrar = desde;
+            desde = desde->siguiente;
+            liberar_info(a_borrar->dato);
+            delete (a_borrar);
+        }
+        a_borrar = hasta;
+        hasta = hasta->siguiente;
+        liberar_info(a_borrar->dato);
+        delete (a_borrar);
+        return cad;
+    }
 }
