@@ -34,5 +34,6 @@ cadena_t remover_de_cadena(localizador_t &loc, cadena_t cad)
 
 info_t info_cadena(localizador_t loc, cadena_t cad)
 {
-  assert(localizador_en_cadena(loc, cad)) return loc->dato;
+  assert(localizador_en_cadena(loc, cad));
+  return loc->dato;
 }
