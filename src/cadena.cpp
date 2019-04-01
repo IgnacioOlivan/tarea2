@@ -262,3 +262,19 @@ cadena_t cortar_segmento(localizador_t desde, localizador_t hasta, cadena_t cad)
         return cad;
     }
 }
+
+void imprimir_cadena(cadena_t cad)
+{
+    localizador_t res;
+    if (es_cadena_vacia(cad))
+        printf("/n");
+    else
+    {
+        res = cad->inicio while (res != cad->final)
+        {
+            printf("%d", info_a_texto(res->info));
+            res = res->siguiente;
+        }
+        printf("%d\n", info_a_texto(cad->final));
+    }
+}
