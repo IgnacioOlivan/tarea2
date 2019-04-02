@@ -12,13 +12,15 @@ cadena_t intercambiar(localizador_t loc1, localizador_t loc2, cadena_t cad);
 
 void imprimir_cadena(cadena_t cad);
 
-cadena_t insertar_antes(info_t i, localizador_t loc, cadena_t cad)
+cadena_t insertar_antes(info_t i, localizador_t loc, cadena_t cad);
 {
   assert(localizador_en_cadena(loc, cad));
   nodo *nuevo = new nodo;
   nuevo->dato = i;
-  loc->anterior = nuevo;
+  nuevo->siguiente = loc;
+  nuevo->anterior = loc->anterior;
   loc->anterior->siguiente = nuevo;
+  loc->anterior = nuevo;
   return cad;
 }
 
